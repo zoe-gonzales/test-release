@@ -58,3 +58,5 @@ jobs:
         run: npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.SHARED_GITHUB_PACKAGES_TOKEN }}
+      - name: Latest tag
+        uses: EndBug/latest-tag@v1.5.1
