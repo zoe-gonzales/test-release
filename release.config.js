@@ -14,7 +14,6 @@ module.exports = {
         successComment:
           ":rocket: This pull request is included in version ${nextRelease.version}.",
         releasedLabels: [":rocket: released"],
-        publish: false,
       },
     ],
   ],
