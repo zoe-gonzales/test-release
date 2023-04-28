@@ -1,0 +1,24 @@
+{
+  "name": "zoe-test-release",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "npx semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoe-gonzales/test-release.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoe-gonzales/test-release/issues"
+  },
+  "homepage": "https://github.com/zoe-gonzales/test-release#readme",
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "semantic-release": "^21.0.1"
+  }
+}
