@@ -25,3 +25,4 @@ module.exports = {
 // breaking feat on next
 // fix on feat on next
 // another breaking change
+// test after setting channel
