@@ -7,14 +7,21 @@ jobs:
   set-latest:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: set up git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: get most recent git tag
+        run: |
           newestTag=git tag -l --sort=-v:taggerdate | tail -1
           echo 'NEWEST_TAG='$newestTag >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
-      - run: |
+      - name: set latest tag to most recent tag
+        run: |
           gh release edit $NEWEST_TAG --target=main --latest=true --repo $GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
