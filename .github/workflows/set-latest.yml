@@ -18,12 +18,8 @@ jobs:
           git config user.email "<>"
       - name: Get most recent git tag
         run: |
-          getNewestTag() {
-            local tag=$(git tag -l --sort=-v:taggerdate --merged | tail -1)
-            echo "$tag"
-          }
-          newestTag=$(getNewestTag)
-          echo 'NEWEST_TAG='"$newestTag" >> $GITHUB_ENV
+          tag=$(git tag -l --sort=-v:taggerdate --merged | tail -1)
+          echo 'NEWEST_TAG='"$tag" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set latest tag to most recent tag
