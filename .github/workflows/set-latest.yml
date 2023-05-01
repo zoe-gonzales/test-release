@@ -27,4 +27,5 @@ jobs:
           gh release edit $NEWEST_TAG --target=main --latest=true --repo $GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEWEST_TAG: ${{ env.NEWEST_TAG }}
           
