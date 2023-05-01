@@ -1,10 +1,5 @@
 module.exports = {
-  branches: [
-    "+([0-9])?(.{+([0-9]),x}).x",
-    "main",
-    { name: "next", channel: "channel-next" },
-    "next-major",
-  ],
+  branches: ["+([0-9])?(.{+([0-9]),x}).x", "main", "next", "next-major"],
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -18,12 +13,3 @@ module.exports = {
     ],
   ],
 };
-
-// bug fix
-// feat on next
-// breaking feat on next
-// fix on feat on next
-// another breaking change
-// test after setting channel
-// test again
-// another day, another change
