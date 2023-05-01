@@ -7,10 +7,10 @@ jobs:
   set-latest:
     runs-on: ubuntu-latest
     steps:
-      - run |
+      - run: |
           newestTag=git tag -l --sort=-v:taggerdate | tail -1
           echo 'NEWEST_TAG='$newestTag >> $GITHUB_ENV
-      env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
