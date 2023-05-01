@@ -25,6 +25,7 @@ jobs:
           newestTag=$(getNewestTag)
           echo "$newestTag"
           echo 'NEWEST_TAG='"$newestTag" >> $GITHUB_ENV
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: set latest tag to most recent tag
