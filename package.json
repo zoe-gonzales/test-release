@@ -1,7 +1,6 @@
 {
-  "name": "zoe-test-release",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@zgonzales-joinhandshake/zoe-test-release",
+  "version": "4.1.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/zoe-gonzales/test-release.git"
   },
-  "author": "",
+  "author": "Zoe",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zoe-gonzales/test-release/issues"
@@ -20,5 +19,6 @@
   "devDependencies": {
     "commitizen": "^4.3.0",
     "semantic-release": "^21.0.1"
-  }
+  },
+  "description": ""
 }
