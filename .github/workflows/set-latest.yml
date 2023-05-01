@@ -14,8 +14,10 @@ jobs:
           fetch-depth: 0
       - name: get most recent git tag
         run: |
-          newestTag=git tag -l --sort=-v:taggerdate | tail -1
-          echo 'NEWEST_TAG='$newestTag >> $GITHUB_ENV
+          newestRelease=gh release list --exclude-drafts=true --exclude-pre-releases=true -L=1
+          echo "newestRelease" | newestRelease
+          echo "tag" | newestRelease.tag
+          echo 'NEWEST_TAG='$newestRelease.tag >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}
