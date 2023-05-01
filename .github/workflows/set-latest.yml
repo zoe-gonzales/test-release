@@ -19,7 +19,7 @@ jobs:
       - name: get most recent git tag
         run: |
           getNewestTag() {
-            local tag=$(git tag -l --sort=-v:taggerdate | tail -1)
+            local tag=$(git describe --tags --abbrev=0)
             echo "$tag"
           }
           newestTag=$(getNewestTag)
