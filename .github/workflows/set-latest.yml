@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
@@ -20,13 +19,12 @@ jobs:
       - name: get most recent git tag
         run: |
           getNewestTag() {
-            local tag=$(git describe --tags --abbrev=0)
+            local tag=$(git tag -l --sort=-v:taggerdate --merged | tail -1)
             echo "$tag"
           }
           newestTag=$(getNewestTag)
           echo "$newestTag"
           echo 'NEWEST_TAG='"$newestTag" >> $GITHUB_ENV
-        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: set latest tag to most recent tag
