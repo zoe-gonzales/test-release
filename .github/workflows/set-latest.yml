@@ -12,16 +12,16 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - name: get most recent git tag
         run: |
-          newestRelease=gh release list --exclude-drafts=true --exclude-pre-releases=true -L=1
-          echo "newestRelease" | newestRelease
-          echo "tag" | newestRelease.tag
-          echo 'NEWEST_TAG='$newestRelease.tag >> $GITHUB_ENV
+          newestTag=git tag -l --sort=-v:taggerdate | tail -1
+          echo 'NEWEST_TAG='$newestTag >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.event.repository.name }}
       - name: set latest tag to most recent tag
         run: |
           gh release edit $NEWEST_TAG --target=main --latest=true --repo $GITHUB_REPOSITORY
