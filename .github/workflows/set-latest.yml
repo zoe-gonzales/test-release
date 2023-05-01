@@ -1,16 +1,17 @@
 name: Set latest
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
+    branches: [main]
 jobs:
   set-latest:
     runs-on: ubuntu-latest
     steps:
-      - name: set up git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: get most recent git tag
         run: |
           newestTag=git tag -l --sort=-v:taggerdate | tail -1
