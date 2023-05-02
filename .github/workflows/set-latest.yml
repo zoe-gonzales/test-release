@@ -13,20 +13,20 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
-      - name: Setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-      - name: Get most recent git tag
-        run: |
-          tag=$(git tag -l --sort=-v:taggerdate --merged | tail -1)
-          echo 'NEWEST_TAG='"$tag" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set latest tag to most recent tag
-        run: |
-          gh release edit $NEWEST_TAG --target=main --latest=true --repo $GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEWEST_TAG: ${{ env.NEWEST_TAG }}
+      # - name: Setup git config
+      #   run: |
+      #     git config user.name "GitHub Actions Bot"
+      #     git config user.email "<>"
+      # - name: Get most recent git tag
+      #   run: |
+      #     tag=$(git tag -l --sort=-v:taggerdate --merged | tail -1)
+      #     echo 'NEWEST_TAG='"$tag" >> $GITHUB_ENV
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Set latest tag to most recent tag
+      #   run: |
+      #     gh release edit $NEWEST_TAG --target=main --latest=true --repo $GITHUB_REPOSITORY
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NEWEST_TAG: ${{ env.NEWEST_TAG }}
           
