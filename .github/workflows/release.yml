@@ -53,7 +53,9 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
+      - name: Install Dependencies
+        shell: bash
+        run: npm install
       - name: Publish Release
         run: npm run semantic-release
         env:
