@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zoe-gonzales/test-release#readme",
   "devDependencies": {
+    "@semantic-release/exec": "^6.0.3",
     "commitizen": "^4.3.0",
     "semantic-release": "^21.0.1"
   },
